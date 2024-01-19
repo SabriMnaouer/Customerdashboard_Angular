@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Edit Customer</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="editForm">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Contact Number" formControlName="contactNumber">
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button (click)="onSaveClick()">Save</button>
+</div>

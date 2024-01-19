@@ -1,0 +1,28 @@
+
+.text-indigo {
+  color: #822ae0;
+}
+.btn-orange {
+  background-color: #fd7e14;
+  border-color: #fd7e14;
+  color: #ffffff;
+}
+
+.btn-orange:hover {
+  background-color: #e66400;
+  border-color: #e66400;
+  color: #ffffff;
+}
+
+
+.btn-green {
+  background-color: #50e41a;
+  border-color: #33cf0c;
+  color: #ffffff;
+}
+
+.btn-green:hover {
+  background-color: #86e235;
+  border-color: #16a00c;
+  color: #ffffff;
+}

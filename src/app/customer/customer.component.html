@@ -1,0 +1,79 @@
+<div class="container mt-4">
+  <h1 class="text-indigo text-center fs-1">Dashboard</h1>
+
+  <!-- Button to toggle the Add Customer Form -->
+  <button class="btn btn-orange mb-3" (click)="toggleAddCustomerForm()">
+    Add Customer
+  </button>
+
+  <!-- Right-aligned search and sort input fields -->
+  <div class="d-flex justify-content-end mb-3">
+    <div class="form-group me-3">
+      <label for="searchQuery" class="form-label visually-hidden"
+        >Search by Name</label
+      >
+      <input
+        type="text"
+        class="form-control form-control-sm"
+        id="searchQuery"
+        [(ngModel)]="searchQuery"
+        (input)="applySearchAndSort()"
+        placeholder="Search"
+      />
+    </div>
+
+    <div class="form-group rounded">
+      <label for="sortField" class="form-label visually-hidden">Sort by</label>
+      <select
+        class="form-select form-select-sm"
+        id="sortField"
+        [(ngModel)]="sortField"
+        (change)="sort(sortField)"
+      >
+        <option value="">-- Sort by --</option>
+        <option value="name">Name</option>
+        <option value="email">Email</option>
+        <option value="contactNumber">Contact Number</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Add Customer Form -->
+  <div *ngIf="showAddCustomerForm">
+    <app-customer-form></app-customer-form>
+  </div>
+
+  <!-- Table to display customers -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th (click)="sort('name')">Name</th>
+        <th (click)="sort('email')">Email</th>
+        <th (click)="sort('contactNumber')">Contact Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop through filtered customers -->
+      <tr *ngFor="let customer of filteredCustomers">
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.contactNumber }}</td>
+        <td>
+          <button
+            class="btn btn-sm btn-green me-2"
+            (click)="openEditDialog(customer)"
+          >
+            Edit
+          </button>
+          <button
+            class="btn btn-sm btn-danger"
+            (click)="openDeleteDialog(customer)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

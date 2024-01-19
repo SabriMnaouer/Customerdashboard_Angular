@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <h2>Add Customer</h2>
+  <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+    </div>
+    <div class="mb-3">
+      <label for="contactNumber" class="form-label">Contact Number</label>
+      <input type="text" class="form-control" id="contactNumber" formControlName="contactNumber">
+    </div>
+    <button type="submit" class="btn btn-green mb-2">Add Customer</button>
+  </form>
+</div>
